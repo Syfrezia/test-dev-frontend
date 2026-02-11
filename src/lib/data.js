@@ -48,3 +48,13 @@ export const favorites = ['Otto', 'Luna', 'Milo', 'Max'];
 
 // Array untuk task 7
 export const arrayOfNum = [15, 18, 3, 9, 6, 2, 12, 14];
+
+// Test Case untuk task 8
+export const anagramTestCases = [
+  { str1: 'listen', str2: 'silent', expected: true },
+  { str1: 'triangle', str2: 'integral', expected: true },
+  { str1: 'apple', str2: 'pale', expected: false },
+  { str1: 'Astronomer', str2: 'Moon starer', expected: true },
+  { str1: 'The Morse Code', str2: 'Here come dots', expected: true },
+  { str1: 'Hello', str2: 'World', expected: false },
+];

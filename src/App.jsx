@@ -5,6 +5,7 @@ import { FavoritePetList } from './components/FavoritePetList';
 import { PalindromePetList } from './components/PalindromePetList';
 import { isPalindrome, isEven } from './lib/utils';
 import { SumOfEvenNumbers } from './components/SumOfEvenNumbers';
+import { IsAnagramTestCases } from './components/IsAnagramTestCases';
 
 function App() {
   const [petList, setPetList] = useState(pets);
@@ -154,6 +155,8 @@ function App() {
       />
 
       <SumOfEvenNumbers evenSum={evenSum} handleEvenSum={handleEvenSum} />
+
+      <IsAnagramTestCases />
     </main>
   );
 }
