@@ -13,6 +13,7 @@ function App() {
   const [favoritePets, setFavoritePets] = useState(favorites);
   const [favoriteOrder, setFavoriteOrder] = useState('asc');
   const [typeCount, setTypeCount] = useState({});
+  const [palindromePets, setPalindromePets] = useState([]);
 
   const addNewPet = ({ name, type, race, description }) => {
     setPetList((prevPetList) => [
@@ -116,6 +117,10 @@ function App() {
     return palindromePets;
   };
 
+  const handleShowPalindromePets = () => {
+    setPalindromePets(filterPetsWithPalindrome(petList));
+  };
+
   return (
     <main className="p-2 md:p-4">
       <h1 className="text-[#0b74b6] text-2xl font-semibold">
@@ -137,7 +142,8 @@ function App() {
       />
 
       <PalindromePetList
-        petsWithPalindrome={filterPetsWithPalindrome(petList)}
+        petsWithPalindrome={palindromePets}
+        handleShowPalindromePets={handleShowPalindromePets}
       />
 
       <SumOfEvenNumbers />
