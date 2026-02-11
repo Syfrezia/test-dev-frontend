@@ -1,3 +1,5 @@
+import { Button } from './ui/Button';
+
 export function PalindromePetList({
   petsWithPalindrome,
   handleShowPalindromePets,
@@ -24,12 +26,9 @@ export function PalindromePetList({
         </ul>
       </div>
 
-      <button
-        onClick={handleShowPalindromePets}
-        className="mt-4 px-4 py-2 bg-[#0b74b6] text-white rounded-md hover:bg-[#095a91] disabled:opacity-50 disabled:cursor-not-allowed font-medium"
-      >
+      <Button onClick={handleShowPalindromePets}>
         Tampilkan Peliharaan Palindrome
-      </button>
+      </Button>
     </div>
   );
 }

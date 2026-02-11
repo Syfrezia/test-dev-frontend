@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { isAnagram } from '../lib/utils';
 import { anagramTestCases } from '../lib/data';
+import { Button } from './ui/Button';
 
 export function IsAnagramTestCases() {
   const [testResults, setTestResults] = useState([]);
@@ -21,12 +22,7 @@ export function IsAnagramTestCases() {
           Test Kasus Anagram
         </h2>
 
-        <button
-          onClick={handleRunTests}
-          className="bg-[#0b74b6] text-white px-4 py-2 rounded"
-        >
-          Jalankan Tes
-        </button>
+        <Button onClick={handleRunTests}>Jalankan Tes</Button>
       </div>
 
       <div className="min-h-48 mt-4 overflow-x-auto">
@@ -55,7 +51,7 @@ export function IsAnagramTestCases() {
           </thead>
           <tbody>
             {testResults.length === 0 && (
-              <tr className='h-54'>
+              <tr className="h-54">
                 <td
                   colSpan="7"
                   className="px-3 py-2 text-center text-[#6b7280]"

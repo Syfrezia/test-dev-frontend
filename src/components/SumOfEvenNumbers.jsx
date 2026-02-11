@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { arrayOfNum } from '../lib/data';
 import { isEven } from '../lib/utils';
+import { Button } from './ui/Button';
 
 export function SumOfEvenNumbers() {
   const [evenSum, setEvenSum] = useState(0);
@@ -26,12 +27,7 @@ export function SumOfEvenNumbers() {
         Jumlah: {evenSum > 0 ? evenSum : '...'}
       </p>
 
-      <button
-        onClick={handleEvenSum}
-        className="mt-4 px-4 py-2 bg-[#0b74b6] text-white rounded-md hover:bg-[#095a91] disabled:opacity-50 disabled:cursor-not-allowed font-medium"
-      >
-        Hitung Jumlah Bilangan Genap
-      </button>
+      <Button onClick={handleEvenSum}>Hitung Jumlah Bilangan Genap</Button>
     </div>
   );
 }

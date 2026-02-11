@@ -1,3 +1,5 @@
+import { Button } from './ui/Button';
+
 export function PetTable({
   petList,
   handleAddRino,
@@ -53,28 +55,23 @@ export function PetTable({
         </div>
 
         <div className="flex gap-3">
-          <button
+          <Button
             onClick={handleAddRino}
-            className="mt-4 px-4 py-2 bg-[#0b74b6] text-white rounded-md hover:bg-[#095a91] disabled:opacity-50 disabled:cursor-not-allowed font-medium"
             disabled={petList.some((pet) => pet.name === 'Rino')}
           >
             Tambah Rino ke Daftar Peliharaan
-          </button>
+          </Button>
 
-          <button
+          <Button
             onClick={changePersianToMaineCoon}
-            className="mt-4 px-4 py-2 bg-[#0b74b6] text-white rounded-md hover:bg-[#095a91] disabled:opacity-50 disabled:cursor-not-allowed font-medium"
             disabled={!petList.some((pet) => pet.race === 'Persia')}
           >
             Ganti Persia ke Maine Coon
-          </button>
+          </Button>
 
-          <button
-            onClick={handleShowTypeCount}
-            className="mt-4 px-4 py-2 bg-[#0b74b6] text-white rounded-md hover:bg-[#095a91] disabled:opacity-50 disabled:cursor-not-allowed font-medium"
-          >
+          <Button onClick={handleShowTypeCount}>
             Tampilkan Jumlah Jenis Peliharaan
-          </button>
+          </Button>
         </div>
       </div>
     </div>
