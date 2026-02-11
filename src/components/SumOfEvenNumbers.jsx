@@ -5,12 +5,14 @@ import { isEven } from '../lib/utils';
 
 export function SumOfEvenNumbers() {
   const [evenSum, setEvenSum] = useState(0);
+  const [evenNumbers, setEvenNumbers] = useState([]);
 
+  // Task 7: Buat fungsi untuk menjumlah bilangan genap dari array berikut [15,18,3,9,6,2,12,14] dan munculkan bilangan genap nya
   const handleEvenSum = () => {
-    const sum = arrayOfNum
-      .filter((num) => isEven(num))
-      .reduce((acc, curr) => acc + curr, 0);
+    const evens = arrayOfNum.filter(isEven);
+    const sum = evens.reduce((acc, curr) => acc + curr, 0);
     setEvenSum(sum);
+    setEvenNumbers(evens);
   };
 
   return (
@@ -18,9 +20,10 @@ export function SumOfEvenNumbers() {
       <h2 className="text-[#6b7280] text-lg font-medium mb-2">
         Jumlah Bilangan Genap
       </h2>
-      <p>
-        Jumlah bilangan genap dari [{arrayOfNum.join(', ')}] adalah:{' '}
-        <strong>{evenSum === 0 ? '...' : evenSum}</strong>
+      <p>Array [{arrayOfNum.join(', ')}]</p>
+      <p>Bilangan genap: {`[${evenNumbers.join(', ')}]`}</p>
+      <p className="mt-2 font-semibold">
+        Jumlah: {evenSum > 0 ? evenSum : '...'}
       </p>
 
       <button
