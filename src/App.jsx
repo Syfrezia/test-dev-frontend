@@ -6,6 +6,7 @@ import { PalindromePetList } from './components/PalindromePetList';
 import { isPalindrome } from './lib/utils';
 import { SumOfEvenNumbers } from './components/SumOfEvenNumbers';
 import { IsAnagramTestCases } from './components/IsAnagramTestCases';
+import { FormatJson } from './components/FormatJson';
 
 function App() {
   const [petList, setPetList] = useState(pets);
@@ -142,6 +143,8 @@ function App() {
       <SumOfEvenNumbers />
 
       <IsAnagramTestCases />
+
+      <FormatJson />
     </main>
   );
 }
