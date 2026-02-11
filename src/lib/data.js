@@ -45,3 +45,6 @@ export const pets = [
 ];
 
 export const favorites = ['Otto', 'Luna', 'Milo', 'Max'];
+
+// Array untuk task 7
+export const arrayOfNum = [15, 18, 3, 9, 6, 2, 12, 14];

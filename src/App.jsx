@@ -1,14 +1,18 @@
 import { useState } from 'react';
-import { pets, favorites } from './lib/data';
+import { pets, favorites, arrayOfNum } from './lib/data';
 import { PetTable } from './components/PetTable';
 import { FavoritePetList } from './components/FavoritePetList';
 import { PalindromePetList } from './components/PalindromePetList';
+import { isPalindrome, isEven } from './lib/utils';
+import { SumOfEvenNumbers } from './components/SumOfEvenNumbers';
 
 function App() {
   const [petList, setPetList] = useState(pets);
   const [favoritePets, setFavoritePets] = useState(favorites);
   const [favoriteOrder, setFavoriteOrder] = useState('asc');
   const [typeCount, setTypeCount] = useState({});
+
+  const [evenSum, setEvenSum] = useState(0);
 
   const addNewPet = ({ name, type, race, description }) => {
     setPetList((prevPetList) => [
@@ -100,12 +104,6 @@ function App() {
     setTypeCount(countBasedOnType);
   };
 
-  const isPalindrome = (str) => {
-    const lower = str.toLowerCase();
-    const reversed = lower.split('').reverse().join('');
-    return lower === reversed;
-  };
-
   // Task 6: Buat fungsi untuk mengecek hewan peliharaan Esa yang mengandung kata palindrome beserta panjang string dari namanya
   const filterPetsWithPalindrome = (pets = []) => {
     const palindromePets = pets
@@ -116,6 +114,19 @@ function App() {
       }));
 
     return palindromePets;
+  };
+
+  const sumOfEvenNumbers = (arr = []) => {
+    return arr.reduce((sum, num) => {
+      if (isEven(num)) {
+        return sum + num;
+      }
+      return sum;
+    }, 0);
+  };
+
+  const handleEvenSum = () => {
+    setEvenSum(sumOfEvenNumbers(arrayOfNum));
   };
 
   return (
@@ -141,6 +152,8 @@ function App() {
       <PalindromePetList
         petsWithPalindrome={filterPetsWithPalindrome(petList)}
       />
+
+      <SumOfEvenNumbers evenSum={evenSum} handleEvenSum={handleEvenSum} />
     </main>
   );
 }
