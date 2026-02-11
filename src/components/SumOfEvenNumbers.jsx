@@ -1,6 +1,18 @@
-import { arrayOfNum } from '../lib/data';
+import { useState } from 'react';
 
-export function SumOfEvenNumbers({ evenSum, handleEvenSum }) {
+import { arrayOfNum } from '../lib/data';
+import { isEven } from '../lib/utils';
+
+export function SumOfEvenNumbers() {
+  const [evenSum, setEvenSum] = useState(0);
+
+  const handleEvenSum = () => {
+    const sum = arrayOfNum
+      .filter((num) => isEven(num))
+      .reduce((acc, curr) => acc + curr, 0);
+    setEvenSum(sum);
+  };
+
   return (
     <div className="mt-8">
       <h2 className="text-[#6b7280] text-lg font-medium mb-2">

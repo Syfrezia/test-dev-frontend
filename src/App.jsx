@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { pets, favorites, arrayOfNum } from './lib/data';
+import { pets, favorites } from './lib/data';
 import { PetTable } from './components/PetTable';
 import { FavoritePetList } from './components/FavoritePetList';
 import { PalindromePetList } from './components/PalindromePetList';
-import { isPalindrome, isEven } from './lib/utils';
+import { isPalindrome } from './lib/utils';
 import { SumOfEvenNumbers } from './components/SumOfEvenNumbers';
 import { IsAnagramTestCases } from './components/IsAnagramTestCases';
 
@@ -12,8 +12,6 @@ function App() {
   const [favoritePets, setFavoritePets] = useState(favorites);
   const [favoriteOrder, setFavoriteOrder] = useState('asc');
   const [typeCount, setTypeCount] = useState({});
-
-  const [evenSum, setEvenSum] = useState(0);
 
   const addNewPet = ({ name, type, race, description }) => {
     setPetList((prevPetList) => [
@@ -117,19 +115,6 @@ function App() {
     return palindromePets;
   };
 
-  const sumOfEvenNumbers = (arr = []) => {
-    return arr.reduce((sum, num) => {
-      if (isEven(num)) {
-        return sum + num;
-      }
-      return sum;
-    }, 0);
-  };
-
-  const handleEvenSum = () => {
-    setEvenSum(sumOfEvenNumbers(arrayOfNum));
-  };
-
   return (
     <main className="p-2 md:p-4">
       <h1 className="text-[#0b74b6] text-2xl font-semibold">
@@ -154,7 +139,7 @@ function App() {
         petsWithPalindrome={filterPetsWithPalindrome(petList)}
       />
 
-      <SumOfEvenNumbers evenSum={evenSum} handleEvenSum={handleEvenSum} />
+      <SumOfEvenNumbers />
 
       <IsAnagramTestCases />
     </main>
